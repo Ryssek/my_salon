@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2023 at 01:42 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: May 13, 2024 at 06:05 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,7 +35,7 @@ CREATE TABLE `tbladmin` (
   `Email` varchar(200) DEFAULT NULL,
   `Password` varchar(200) DEFAULT NULL,
   `AdminRegdate` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbladmin`
@@ -63,7 +63,7 @@ CREATE TABLE `tblappointment` (
   `Remark` varchar(250) NOT NULL,
   `Status` varchar(50) NOT NULL,
   `RemarkDate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -77,20 +77,23 @@ CREATE TABLE `tblcustomers` (
   `Email` varchar(200) DEFAULT NULL,
   `MobileNumber` bigint(11) DEFAULT NULL,
   `AptNumber` varchar(120) DEFAULT NULL,
-  `Gender` enum('Female','Male','Transgender') DEFAULT NULL,
+  `Gender` enum('Female','Male','Others') DEFAULT NULL,
   `app_date` varchar(120) DEFAULT NULL,
   `app_time` varchar(120) DEFAULT NULL,
   `Details` mediumtext DEFAULT NULL,
   `CreationDate` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblcustomers`
 --
 
 INSERT INTO `tblcustomers` (`ID`, `Name`, `Email`, `MobileNumber`, `AptNumber`, `Gender`, `app_date`, `app_time`, `Details`, `CreationDate`) VALUES
-(42, 'Abhishek Singh', 'abhisheksingh81037272@gmail.com', 8237283823, '341188319', 'Male', '2023-04-25', '16:38', 'dadad', '2023-04-25 11:08:09'),
-(43, 'Nayan', 'dmnd@gmail.com', 8237283823, '777534318', 'Transgender', '2023-05-06', '05:41', 'hello', '2023-04-25 11:10:49');
+(49, 'Russel Giducos', 'ryssek@gmail.com', 123456, '148462376', 'Male', '2024-05-15', '11:05', 'Facial', '2024-05-06 04:06:07'),
+(51, 'Russel Giducos', 'Rysseks@gmail.com', 123456, '633563039', 'Male', '2024-05-14', '21:37', 'kljhj', '2024-05-06 04:34:25'),
+(52, 'cgd', 'Rysseks@gmail.com', 66576577, '859885583', 'Male', '2024-05-16', '22:00', 'hair cut', '2024-05-06 04:39:35'),
+(53, 'Russel Giducos', 'ryssek@gmail.com', 464984, '844677482', '', '2024-07-07', '22:00', 'facial', '2024-05-07 04:03:20'),
+(54, 'wsiygw', 'diohanem@gmail.com', 456456444, '815161288', 'Male', '2024-06-26', '15:05', 'haircut', '2024-05-07 04:20:48');
 
 -- --------------------------------------------------------
 
@@ -104,15 +107,16 @@ CREATE TABLE `tblinvoice` (
   `ServiceId` int(11) DEFAULT NULL,
   `BillingId` int(11) DEFAULT NULL,
   `PostingDate` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblinvoice`
 --
 
 INSERT INTO `tblinvoice` (`id`, `Userid`, `ServiceId`, `BillingId`, `PostingDate`) VALUES
-(43, 37, 8, 165333293, '2023-04-25 08:15:53'),
-(44, 38, 2, 162292257, '2023-04-25 08:17:27');
+(7, 49, 2, 851398099, '2024-05-06 04:22:45'),
+(8, 49, 9, 851398099, '2024-05-06 04:22:45'),
+(9, 51, 3, 423800090, '2024-05-06 04:35:41');
 
 -- --------------------------------------------------------
 
@@ -129,15 +133,15 @@ CREATE TABLE `tblpage` (
   `MobileNumber` bigint(10) DEFAULT NULL,
   `UpdationDate` date DEFAULT NULL,
   `Timing` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblpage`
 --
 
 INSERT INTO `tblpage` (`ID`, `PageType`, `PageTitle`, `PageDescription`, `Email`, `MobileNumber`, `UpdationDate`, `Timing`) VALUES
-(1, 'aboutus', 'About Us', '                                                                                                        Our main focus is on quality and hygiene. Our Parlour is well equipped with advanced technology equipments and provides best quality services. Our staff is well trained and experienced, offering advanced services in Skin, Hair and Body Shaping that will provide you with a luxurious experience that leave you feeling relaxed and stress free. The specialities in the parlour are, apart from regular bleachings and Facials, many types of hairstyles, Bridal and cine make-up and different types of Facials &amp; fashion hair colourings.quality services. Our staff is well trained and experienced, offering advanced services in Skin, Hair and Body Shaping that will provide you with a luxurious experience that leave you feeling relaxed and stress free. The specialities in the parlour are, apart.colourings.quality services. Our staff is well trained and experienced, offering advanced services in Skin, Hair and Body Shaping that will provide you with a luxurious experience that leave you feeling relaxed and stress free. The specialities in the parlour are, apart.colourings.quality services. Our staff is well trained and experienced, offering advanced services in Skin, Hair and Body Shaping that will provide you.', NULL, NULL, NULL, ''),
-(2, 'contactus', 'Contact Us', 'Nerim, Assam', 'Abhishek@gmail.com', 9365524166, NULL, '10:30 am to 8:30 pm');
+(1, 'aboutus', 'About Us', 'Our main focus is on quality and hygiene. Our Parlour is well equipped with advanced technology equipments and provides best quality services. Our staff is well trained and experienced, offering advanced services in Skin, Hair and Body Shaping that will provide you with a luxurious experience that leave you feeling relaxed and stress free. The specialities in the parlour are, apart from regular bleachings and Facials, many types of hairstyles, Bridal and cine make-up and different types of Facials &amp; fashion hair colourings.quality services. Our staff is well trained and experienced, offering advanced services in Skin, Hair and Body Shaping that will provide you with a luxurious experience that leave you feeling relaxed and stress free. The specialities in the parlour are, apart.colourings.quality services. Our staff is well trained and experienced, offering advanced services in Skin, Hair and Body Shaping that will provide you with a luxurious experience that leave you feeling relaxed and stress free. The specialities in the parlour are, apart.colourings.quality services. Our staff is well trained and experienced, offering advanced services in Skin, Hair and Body Shaping that will provide you.', NULL, NULL, NULL, ''),
+(2, 'contactus', 'Contact Us', '                Contact Us', 'russelmen123@gmail.com', 9123456789, NULL, '10:30 am to 8:30 pm');
 
 -- --------------------------------------------------------
 
@@ -151,7 +155,7 @@ CREATE TABLE `tblservices` (
   `Description` mediumtext DEFAULT NULL,
   `Cost` int(10) DEFAULT NULL,
   `CreationDate` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblservices`
@@ -180,18 +184,14 @@ CREATE TABLE `tblsubscriber` (
   `ID` int(5) NOT NULL,
   `Email` varchar(200) DEFAULT NULL,
   `DateofSub` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tblsubscriber`
 --
 
 INSERT INTO `tblsubscriber` (`ID`, `Email`, `DateofSub`) VALUES
-(47, 'abhisheksingh81037272@gmail.com', '2023-04-19 14:43:57'),
-(48, 'yourname@example.com', '2023-04-19 14:47:43'),
-(50, 'abhisheksingh81037272@gmail.com', '2023-04-19 14:51:36'),
-(51, 'abhisheksingh81037272@gmail.com', '2023-04-19 14:52:57'),
-(52, 'abhisheksingh81037272@gmail.com', '2023-04-19 14:55:31');
+(76, 'Rysseks@gmail.com', '2024-05-06 04:10:26');
 
 --
 -- Indexes for dumped tables
@@ -261,13 +261,13 @@ ALTER TABLE `tblappointment`
 -- AUTO_INCREMENT for table `tblcustomers`
 --
 ALTER TABLE `tblcustomers`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `tblinvoice`
 --
 ALTER TABLE `tblinvoice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tblpage`
@@ -279,13 +279,13 @@ ALTER TABLE `tblpage`
 -- AUTO_INCREMENT for table `tblservices`
 --
 ALTER TABLE `tblservices`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tblsubscriber`
 --
 ALTER TABLE `tblsubscriber`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
